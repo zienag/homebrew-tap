@@ -1,6 +1,6 @@
 cask "xcmcptap" do
-  version "1.2.0"
-  sha256 "950b678fd0d91dd349c866f60ec8795f00aeaabb9cd8c913e4b65475fb69beb8"
+  version "1.2.1"
+  sha256 "e54d2544378c1e2b4757bb433b85ae01f92b5d827b7b1415e3b3e88080adc07f"
 
   url "https://github.com/zienag/xcmcptap/releases/download/v#{version}/XcodeMCPTap-#{version}.dmg"
   name "Xcode MCP Tap"
@@ -21,13 +21,13 @@ cask "xcmcptap" do
 
   # Tear down the agent + any system symlink while the .app is still
   # on disk (SMAppService.unregister needs the bundle present).
+  # This runs as the user and handles both the SMAppService agent
+  # and any privileged helper-daemon-installed `/usr/local/bin`
+  # symlink without prompting for sudo.
   uninstall_preflight do
     system_command "#{appdir}/Xcode MCP Tap.app/Contents/MacOS/xcmcptap",
                    args: ["uninstall"]
   end
-
-  uninstall launchctl: "alfred.xcmcptap",
-            delete:    "/usr/local/bin/xcmcptap"
 
   zap trash: [
     "~/Library/LaunchAgents/alfred.xcmcptap.plist",
