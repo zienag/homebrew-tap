@@ -1,6 +1,6 @@
 cask "xcmcptap" do
-  version "1.2.1"
-  sha256 "e54d2544378c1e2b4757bb433b85ae01f92b5d827b7b1415e3b3e88080adc07f"
+  version "1.2.2"
+  sha256 "6a096bc746a6ad5a45ac98b4437705612d7430d2defe569f4cd7df1beed22f3d"
 
   url "https://github.com/zienag/xcmcptap/releases/download/v#{version}/XcodeMCPTap-#{version}.dmg"
   name "Xcode MCP Tap"
