@@ -7,7 +7,7 @@ cask "xcmcptap" do
   desc "Persistent bridge that eliminates repeated Xcode MCP permission dialogs"
   homepage "https://github.com/zienag/xcmcptap"
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "Xcode MCP Tap.app"
   binary "#{appdir}/Xcode MCP Tap.app/Contents/MacOS/xcmcptap"
